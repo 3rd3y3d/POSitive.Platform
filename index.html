@@ -67,7 +67,14 @@
         /* FOOTER */
         .footer { background: #111; color: #888; padding: 50px 5%; text-align: center; font-size: 0.9rem; }
         .footer-logo { height: 40px; opacity: 0.5; margin-bottom: 20px; border-radius: 50%; }
-        .qr-placeholder { background: var(--white); width: 100px; height: 100px; margin: 20px auto; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; border-radius: 5px; }
+        /* NEW QR CODE STYLE */
+        .qr-code-logo { 
+            width: 120px;       /* Sets fixed width */
+            height: auto;       /* Maintains aspect ratio */
+            margin: 20px auto;  /* Centers it and adds vertical spacing */
+            border-radius: 10px; /* Adds nice rounded corners */
+            border: 2px solid var(--gold); /* Optional: adds a gold border frame */
+        }
 
         @media (max-width: 768px) {
             .mission { grid-template-columns: 1fr; }
@@ -202,10 +209,11 @@ business infrastructure, so you KEEP more of every dollar EARNED.</p>
     <div>(224) 307-4511</div>
     
     <div class="qr-code">
-    <img src="NDPS.qr-code.3.jpg" alt="NDPS" class="qr-code-logo"> 
+    <img src="NDPS.qr-code.3.jpg" alt="Scan for Contact Info" class="qr-code-logo"> 
     </div>
     <div style="font-size:0.8rem; opacity:0.5;">Scan to save contact info</div>
-<section style="background:#222; padding:50px 5%; color:#fff; border-top:5px solid #D4AF37;">
+
+<section style="background:#222; padding:50px 5%; color:#fff; border-top:5px solid #D4AF37; margin-top: 30px;">
     <div style="max-width:1000px; margin:auto;">
         <h3 style="color:#D4AF37; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px;">
             <span style="background:#D4AF37; color:#000; padding:2px 8px; font-size:0.8rem; border-radius:3px; vertical-align:middle; margin-right:10px;">INTERNAL</span>
