@@ -6,19 +6,15 @@
     <title>NDPS | Chicago Fintech Infrastructure</title>
     <style>
         :root {
-            --navy: #000035;
-            --gold: #D4AF37;
-            --white: #ffffff;
-            --grey: #f8f9fa;
-            --text: #333333;
-            --emerald: #004d40;
+            --navy: #000035; --gold: #D4AF37; --white: #ffffff;
+            --grey: #f8f9fa; --text: #333333; --emerald: #004d40;
         }
         body { margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--white); }
         
         /* NAVIGATION */
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: var(--navy); border-bottom: 3px solid var(--gold); }
         .logo-container { display: flex; align-items: center; gap: 15px; }
-        .logo-img { height: 100px; width: auto; border-radius: 50%; border: 2px solid var(--gold); }
+        .logo-img { height: 60px; width: auto; border-radius: 50%; border: 2px solid var(--gold); }
         .nav-brand { color: var(--white); font-size: 1.2rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
         .nav-cta { background: var(--gold); color: var(--navy); padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: bold; transition: 0.3s; }
         .nav-cta:hover { background: var(--white); }
@@ -66,15 +62,15 @@
 
         /* FOOTER */
         .footer { background: #111; color: #888; padding: 50px 5%; text-align: center; font-size: 0.9rem; }
-        .footer-logo { height: 250px; opacity: 0.5; margin-bottom: 20px; border-radius: 50%; }
-        /* NEW QR CODE STYLE */
+        .footer-logo { height: 40px; opacity: 0.5; margin-bottom: 20px; border-radius: 50%; transition: 0.3s; }
+        .footer-logo:hover { opacity: 1; border: 2px solid var(--gold); }
+        
+        /* QR CODE STYLE */
         .qr-code-logo { 
-            width: 500px;       /* Sets fixed width */
-            height: auto;       /* Maintains aspect ratio */
-            margin: 20px auto;  /* Centers it and adds vertical spacing */
-            border-radius: 10px; /* Adds nice rounded corners */
-            border: 2px solid var(--gold); /* Optional: adds a gold border frame */
+            width: 120px; height: auto; margin: 20px auto; 
+            border-radius: 10px; border: 2px solid var(--gold); cursor: pointer; transition: 0.3s;
         }
+        .qr-code-logo:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
 
         @media (max-width: 768px) {
             .mission { grid-template-columns: 1fr; }
@@ -94,8 +90,8 @@
 
 <section class="hero">
     <h1>UpScaling Chicago’s<br>Financial Infrastructure</h1>
-    <p>Stop paying unfair high rates, fees, chargebacks with your 'legacy POS'. 
-        Instead, start owning your transaction rails. Local, secure, instant
+    <p>Stop paying unfair high rates and fees on your 'legacy POS'. 
+        Start owning your transaction rails. Local, secure, instant
         & IRREVERSIBLE settlement for Chicago’s premier independent businesses.</p>
     <div>
         <a href="#simulator" class="btn-main">Calculate My Savings</a>
@@ -175,7 +171,7 @@ Plug in your monthly numbers to see how much you are currently losing to your MA
         <div class="result-display">
             <div style="font-size:0.9rem; color:#666; text-transform:uppercase;">Annual Profit Reclaimed</div>
             <div id="savings" class="saving-amount">$6,000.00</div>
-            <div style="font-size:0.8rem; color:#888;">*Based on NDPS Optimized Rate of 2.5%</div>,
+            <div style="font-size:0.8rem; color:#888;">*Based on NDPS Optimized Rate of 2.5%</div>
         </div>
         <br>
         <a href="mailto:digipaymentsystems@gmail.com" class="btn-main" style="width:100%; box-sizing:border-box;">Schedule Full Audit</a>
@@ -204,12 +200,17 @@ business infrastructure, so you KEEP more of every dollar EARNED.</p>
 </section>
 
 <footer class="footer">
-    <img src="NDPS.Logo.jpg" alt="NDPS" class="footer-logo">
+    <a href="index.html">
+        <img src="NDPS.Logo.jpg" alt="NDPS" class="footer-logo">
+    </a>
+    
     <div>New Digital Payment Systems LLC | Chicago, IL</div>
     <div>(224) 307-4511</div>
     
     <div class="qr-code">
-    <img src="NDPS.qr-code.3.jpg" alt="Scan for Contact Info" class="qr-code-logo"> 
+        <a href="KYi.bizcard.html">
+            <img src="NDPS.qr-code.3.jpg" alt="Scan for Contact Info" class="qr-code-logo"> 
+        </a>
     </div>
     <div style="font-size:0.8rem; opacity:0.5;">Scan to save contact info</div>
 
@@ -256,23 +257,15 @@ business infrastructure, so you KEEP more of every dollar EARNED.</p>
 
 <script>
     function calculate() {
-        // 1. Get Inputs
         const vol = parseFloat(document.getElementById('monthly_vol').value) || 0;
         const rate = parseFloat(document.getElementById('current_rate').value) || 0;
-        const target_rate = 2.5; // NDPS Benchmark
-
-        // 2. Calculate Costs
+        const target_rate = 2.5; 
         const current_cost = vol * (rate / 100);
         const new_cost = vol * (target_rate / 100);
-        
-        // 3. Calculate Savings
         const monthly_savings = current_cost - new_cost;
         const annual_savings = monthly_savings * 12;
-
-        // 4. Update Display
         document.getElementById('savings').innerText = '$' + annual_savings.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
     }
-    // Run on load
     calculate();
 </script>
 
